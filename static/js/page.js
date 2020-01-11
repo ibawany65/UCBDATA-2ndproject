@@ -5,7 +5,7 @@ function makePage() {
   const long = -87.6298;
 
   // Make Map
-  var map = L.map(/*map id*/).setView([lat, long], 13);
+  var map = L.map("map_id").setView([lat, long], 13);
 
   // Street Title Layer
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -13,5 +13,7 @@ function makePage() {
     maxZoom: 18,
     id: 'mapbox/streets-v11',
     accessToken: APIKEY
-}).addTo(mymap);
-}
+}).addTo(map);
+};
+
+makePage();
