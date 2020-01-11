@@ -1,2 +1,5 @@
 # No config files
 config.js
+
+# Ignore CSV Data (too large)
+illinois_data_df.csv
