@@ -14,6 +14,17 @@ function makePage() {
     id: 'mapbox/streets-v11',
     accessToken: APIKEY
 }).addTo(map);
+
+  d3.json("/static/resources/zip_boundaries.geojson", function(data) {
+    L.geoJSON(data.features, {
+      onEachFeature: function(feature, layer) {
+        layer.bindPopup(`ZIP: ${feature.properties.zip}`);
+      }
+    }).addTo(map);
+  });
+
+
+  // makePage END
 };
 
 makePage();
