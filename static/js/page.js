@@ -10,15 +10,17 @@ function compLayer(first, second) {
 function makePage() {
 
   // Chicago Lat, Long
-  const lat = 41.8781;
-  const long = -87.6298;
+  const lat = 41.8681;
+  const long = -87.635;
 
   // Make Map
   var map = L.map("map_id", {
     zoomSnap: .5,
-  }).setView([lat, long], 10.5);
+  }).setView([lat, long], 10);
 
-  var layersControl = L.control.layers().addTo(map);
+  var layersControl = L.control.layers({},{}, options = {
+    sortLayers:true
+  }).addTo(map);
 
   // Street Title Layer
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
