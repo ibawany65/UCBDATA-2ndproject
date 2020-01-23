@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask import render_template
-from flask import request
-from flask import jsonify
+
+import pymongo
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def restRequest():
     # Returns: JSON of mongo instance data
 
     # Test 1
-    
+
     return request.args
 
 if __name__ == "__main__":
