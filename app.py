@@ -1,9 +1,11 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask import render_template
 from pymongo import MongoClient
 import json
 from bson import json_util
 from bson.json_util import dumps
+
+import pymongo
 
 app = Flask(__name__)
 
@@ -24,6 +26,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+<<<<<<< HEAD
 
 @app.route("/chicagohousing/housingprices")
 def chicagohousing_housingprices():
@@ -38,6 +41,16 @@ def chicagohousing_housingprices():
     connection.close()
     return json_housing
     
+=======
+@app.route("/data", methods=['GET'])
+def restRequest():
+    # Full url is "/data?year=<year>&format=<inventory|price>&zip=<zip>"
+    # Returns: JSON of mongo instance data
+
+    # Test 1
+
+    return request.args
+>>>>>>> d736106eccfd7be737c54ae9701272dadba25bee
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)

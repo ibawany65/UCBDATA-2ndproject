@@ -26,14 +26,31 @@
     <!-- Our stylesheet -->
     <link rel="stylesheet" href="../static/css/styles.css">
 
-    </script>
-
-
 </head>
 <body>
     <!--JS-->
     <div class="row">
+      <!-- Column Space -->
       <div class="col-md"></div>
+
+      <!-- Display -->
+      <div class="col-md-2">
+
+        <!-- Settings -->
+        <ul class="list-group">
+
+          <li class="list-group-item" id="item-year">Year: 2010</li>
+
+          <button id="price-btn" type="button" class="list-group-item list-group-item-action active">Median Price</button>
+
+          <button id="inv-btn" type="button" class="list-group-item list-group-item-action">Inventory</button>
+
+        </ul>
+
+        <!-- Fine Grained Detail -->
+      </div>
+
+      <!-- Map Content -->
       <div class="col-md-8">
         <div id="map_id"></div>
         <div>
@@ -41,10 +58,13 @@
             class="year-slider">
         </div>
       </div>
+
+      <!-- Column Space -->
       <div class="col-md"></div>
     </div>
 
     <script type="text/javascript" src="../static/js/config.js"></script>
+    <script type="text/javascript" src="../static/js/lib.js"></script>
     <script type="text/javascript" src="../static/js/page.js"></script>
 
 </body>

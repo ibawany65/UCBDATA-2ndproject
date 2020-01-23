@@ -1,11 +1,5 @@
-function compLayer(first, second) {
-  // Sorts Layers by Name
-  let a = Number(first.feature.properties.zip);
-  let b = Number(second.feature.properties.zip);
-  console.log(a);
-  console.log(b);
-  return a-b;
-}
+var zipList = [];
+var zipLayers = {};
 
 function makePage() {
 
@@ -36,13 +30,39 @@ d3.json("/static/resources/zip_boundaries.geojson", function(data) {
     onEachFeature: function(feature, layer) {
       layer.bindPopup(`ZIP: ${feature.properties.zip}`);
       layersControl.addOverlay(layer, `${feature.properties.zip}`);
+      layer.on("click", sendRestRequest);
     }
   }).addTo(map);
 });
 
-  // Control
-
   // makePage END
 };
+
+/* Listeners */
+
+// Buttons
+var priceBtn = d3.select("#price-btn");
+var invBtn = d3.select("#inv-btn");
+
+function onClick(event) {
+  priceBtn.classed("active") ?
+    priceBtn.classed("active", false) : priceBtn.classed("active", true);
+  invBtn.classed("active") ?
+    invBtn.classed("active", false) : invBtn.classed("active", true);
+}
+
+priceBtn.on("click", onClick);
+invBtn.on("click", onClick);
+
+// Slider
+var yearSlider = d3.select(".year-slider")
+var yearDisp = d3.select("#item-year");
+
+function onSlide(event) {
+  let year = yearSlider.node().value;
+  yearDisp.text("Year: " + year);
+}
+
+yearSlider.on("change", onSlide);
 
 makePage();
