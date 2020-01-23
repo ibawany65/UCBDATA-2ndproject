@@ -30,6 +30,7 @@ d3.json("/static/resources/zip_boundaries.geojson", function(data) {
     onEachFeature: function(feature, layer) {
       layer.bindPopup(`ZIP: ${feature.properties.zip}`);
       layersControl.addOverlay(layer, `${feature.properties.zip}`);
+      layer.on("click", sendRestRequest);
     }
   }).addTo(map);
 });
