@@ -52,13 +52,12 @@ function makeGraphs(error, housingJson, chicagozipJson) {
     //Charts
 	var timeChart = dc.barChart("#time-chart");
 	var propertyTypeChart = dc.rowChart("#resource-type-row-chart");
-	//var ZipCodeChart = dc.barChart("#poverty-level-row-chart");
+	//var ZipCodeChart = dc.barChart("#property-level-row-chart");
 	var ZipCodeChart = dc.barChart("#us-chart");
-	//var usChart = dc.geoChoroplethChart("#us-chart");
-	var usChart = dc.geoChoroplethChart("#poverty-level-row-chart");
+	var usChart = dc.geoChoroplethChart("#property-level-row-chart");
 
-	var HomesSoldND = dc.numberDisplay("#number-projects-nd");
-	var InventoryND = dc.numberDisplay("#total-donations-nd");
+	var HomesSoldND = dc.numberDisplay("#number-homes-nd");
+	var InventoryND = dc.numberDisplay("#total-inventory-nd");
 
 	HomesSoldND
 		.formatNumber(d3.format("d"))
